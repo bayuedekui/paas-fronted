@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import ServicesMarketing from '../pages/ServicesMarketing/ServicesMarketing'
 import LoginOrRegister from "../pages/Login/Login";
 
+
 Vue.use(Router)
 
 export default new Router({
