@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="control-group">
-          <label for="age" class="control-label">年龄：</label>
+          <label for="age" class="control-label">年龄(选填)：</label>
           <div class="controls">
             <input type="text" id="age" placeholder="digits" data-rules="required|digits" name="age">
           </div>
