@@ -7,10 +7,20 @@ const path = require('path')
 module.exports = {
   dev: {
 
+    //解决向后台接口访问时的跨域问题
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api':{
+        target:'http://localhost:8080/paas',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/api':''
+        }
+
+      }  
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

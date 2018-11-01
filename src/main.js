@@ -5,11 +5,12 @@ import App from './App'
 import router from './router'
 
 Vue.config.productionTip = false
+Vue.prototype.HOST = '/api'
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: { App},
   template: '<App/>'
 })
