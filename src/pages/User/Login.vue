@@ -243,7 +243,6 @@
             alert("注册成功,点击确定进入登录页面!")
             this.isLogin=true
             this.$router.push("/loginorregister")
-            location.reload()
           }
         }, resp => {
           alert("注册失败,请重试")
@@ -263,7 +262,7 @@
           resp=>{
             if(resp.data.success == true){
               this.$router.push('/servicesmarketing')
-              console.log("login success")
+              window.location.reload()
             }else{
               alert("用户名或者密码错误,请重试!")
               this.$router.push('/loginorregister')

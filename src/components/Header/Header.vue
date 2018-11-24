@@ -68,9 +68,10 @@ export default {
 
 
     exit(){
-      getRequest('/user/exit',{}).then(resp=>{
-        if(resq.data.success){
-          location.reload()
+      getRequest('/user/exit',{}).then(resq=>{
+        alert("确定退出吗?")
+        if(resq.data){
+          window.location.reload()
         }else{
           alert('系统开了个小差,请重新退出')
         }
