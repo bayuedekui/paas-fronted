@@ -6,14 +6,17 @@
       <li><a href="#">我发布的服务</a></li>
       <li><a href="#">我订购的服务</a></li>
       <li><a href="#">个人中心</a></li>
-      
+
     </ul>
      <form class="sui-form sui-form pull-left">
       <input type="text" placeholder="宝贝/店铺名称...">
       <button class="sui-btn">搜索</button>
     </form>
     <ul class="sui-nav pull-right">
-      <li @click="goTo('/loginorregister')"><a href="#">登录/注册</a></li>
+      <li @click="goTo('/loginorregister')"><a href="#"><i class="iconfont icon-touxiang"></i></a></li>
+      <li @click="goTo('/loginorregister')" v-show="!isLogin"><a>游客</a></li>
+      <li v-show="isLogin"><a>{{}}</a></li>
+      <li><a>退了</a></li>
     </ul>
   </div>
 </div>
@@ -27,7 +30,7 @@
 export default {
   data() {
     return {
-
+      isLogin:false
     }
   },
   components: {
@@ -46,4 +49,7 @@ export default {
 </script>
 
 <style scoped>
+  @import "../../res/css/global.css";
+  @import "../../res/layui/css/layui.css";
+
 </style>
