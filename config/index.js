@@ -12,14 +12,14 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/api':{
-        target:'http://localhost:8080/paas',
+      '/paas':{
+        target:'http://localhost:8091',
         changeOrigin:true,
-        pathRewrite:{
-          '^/api':''
-        }
+        // pathRewrite:{
+        //   '^/paas':'http://localhost:8091/paas'
+        // }
 
-      }  
+      }
     },
 
     // Various Dev Server settings
@@ -30,7 +30,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */

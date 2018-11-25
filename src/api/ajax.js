@@ -3,8 +3,13 @@
  * 返回：promise对象，返回promise.data数据
  */
 import axios from 'axios'
+import qs from 'qs'
 
-export default function ajax(url, data = {}, type = 'GET') {
+
+let base = '/paas';
+
+//参照教程的,不太会用
+/*export default function ajax(url, data = {}, type = 'GET') {
 
   return new Promise(function (resolve, reject) {
     //执行异步ajax请求
@@ -36,4 +41,63 @@ export default function ajax(url, data = {}, type = 'GET') {
     })
   })
 
+}*/
+
+/**
+ * 将form表单的数据发送到后台,一般用于注册或者登录
+ * @param url
+ * @param params
+ * @returns {AxiosPromise}
+ */
+export const postRequest = (url, params) => {
+  return axios({
+    method: 'post',
+    url: `${base}${url}`,
+    data: params,
+    transformRequest: [function (data) {
+      let ret = ''
+      for (let it in data) {
+        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+      }
+      return ret
+    }],
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    }
+  });
+}
+
+// export const postRequest = (url, params) => {
+//   let paramsInfo=JSON.stringify(params)
+//   return axios({
+//     method: 'POST',
+//     url: `${base}${url}`,
+//     data: paramsInfo,
+//     transformRequest:[function (data) {
+//       return qs.stringify(data)
+//     }],
+//     headers: {
+//       'Content-Type': 'application/x-www-form-urlencoded'
+//     }
+//   });
+// }
+
+
+
+export const getRequest = (url,params) => {
+  return axios({
+    method: 'get',
+    data:params,
+    transformRequest: [function (data) {
+      let ret = ''
+      for (let it in data) {
+        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+      }
+      return ret
+    }],
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    url: `${base}${url}`
+  });
 }
