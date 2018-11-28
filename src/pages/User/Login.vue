@@ -139,7 +139,7 @@
             <div class="layui-form layui-form-pane">
               <!--<form method="post">-->
                 <div class="layui-form-item">
-                  <label for="R_email" class="layui-form-label"></label>
+                  <label for="R_email" class="layui-form-label">邮箱</label>
                   <div class="layui-input-inline">
                     <input type="text" id="R_email" name="email" required lay-verify="email" autocomplete="off"
                            class="layui-input">
